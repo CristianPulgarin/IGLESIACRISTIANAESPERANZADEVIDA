@@ -1,0 +1,96 @@
+ .contenedor { 
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1700px;
+    margin:auto;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+}
+
+.contenedor h2 {
+    margin-top:10px;
+}
+.contenedor p {
+    font-size:20px;
+    margin-top:10px;
+    text-align:center;
+   
+}
+
+////////////////////7
+
+ header {
+        background-position: center;
+    }
+
+
+//////////////////////////////
+
+.contenedor-sobre-nosotros {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .sobre-nosotros .contenido-textos {
+        width: 90%;
+    }
+
+    .imagen.about-us {
+        width: 90%;
+    }
+
+    
+
+    .container img {
+        width: 20px;
+    }
+
+    .cards {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .cards .card { 
+        width: 90%;
+    }
+
+    .cards .card:first-child { 
+        margin-bottom: 30px;
+    }
+
+    .servicio-cont {
+        
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    .servicio-ind {
+        width: 100%;
+        text-align: center;
+    }
+
+    .servicio-ind:nth-child(1),.servicio-ind:nth-child(2) {
+        margin-bottom: 60px;
+
+    }
+
+    .servicio-ind img{
+        width: 90%;
+
+    }
+
+
+/////////////////////
+
+ .item img {
+        border: 1px solid #fff;
+        cursor: pointer;
+        width: 500px;
+    }
+
+///////////////////////////
