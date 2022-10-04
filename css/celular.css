@@ -11,443 +11,152 @@ body {
     
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Combo&display=swap');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap");
-:root {
-  --color--gray-300: #E0E0E0;
-  --color--blue-500: #1B2631;
+p{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
 }
 
 
+/*Perfiles pastores*/
+
+.general-container{
+  padding-top: 25px;
+}
+
+.table {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+}
+
 
 .card {
+  position: relative;
+  width: 450px;
+  height: 400px;
+  margin: 20px;
+
+}
+.card .face{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: .5s;
+}
+.card .front {
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+.card .front img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card .front h3 {
+    position: absolute;
+    font-family: DynaPuff;
+    font-size: 30px;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color: white;
+    background: rgba(0,0,0,.4);
+    text-align: center;
+}
+.card .back {
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(255, 90, 81);
+    padding: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+.card .back h3 {
+    font-size: 35px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    font-family: DynaPuff;
+}
+.card .back p {
+    letter-spacing: 1px;
     
-  background-color: #ECF0F1;
-  width: 330px;
-  height: 550px;
-  overflow: hidden;
-  border-radius: 8px;
-  cursor: pointer;
 }
-.card .text {
-  position: relative;
-  margin-left: 1rem;
-  margin-bottom: 2rem;
+.card:hover .front {
+    transform: perspective(600px) rotateY(180deg);
 }
-.card .card_title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 2rem;
-  margin-top: 1rem;
+.card:hover .back {
+    transform: perspective(600px) rotateY(360deg);
 }
-.card .card_title .title {
-  width: 50%;
-  padding-top: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--color--gray-300);
-  clip-path: polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%, 5% 50%);
-  transition: all 0.7s ease;
-}
-.card .list {
-  position: relative;
-}
-.card .social {
-  width: 40%;
-  list-style: none;
-  padding-left: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: 0 auto;
-}
-.card .social .icon {
-  font-size: 20px;
-  transition: all 0.6s ease;
-}
-.card .social .icon:hover {
-  color: #1B2631;
-  transform: translatey(-10px);
-  transition: all 0.6s ease;
-}
-.card .social::after, .card .social::before {
-  position: absolute;
-  content: "";
-  width: 10%;
-  height: 5px;
-  background-color: gray;
-  transition: all 0.8s ease;
-}
-.card .social::after {
-  clip-path: polygon(95% 0, 100% 50%, 95% 100%, 0 100%, 0 0);
-  left: 70%;
-}
-.card .social::before {
-  clip-path: polygon(5% 0, 100% 0, 100% 100%, 5% 100%, 0 50%);
-  right: 70%;
-}
-.card .social:hover::before, .card .social:hover::after {
-  width: 25%;
-  transition: all 0.8s ease;
-  background: #1B2631;
-}
-.card .social, .card .footer {
-  color: gray;
-}
-.card .footer {
-  font-size: 15px;
+.box {
   text-align: center;
+  font-size: 25px;
+  font-family: Grandstander;
 }
 
-.card {
-  position: relative;
-  transition: all 1s ease;
-  
-}
-.card_img {
-  position: relative;
-  overflow: hidden;
-  /*
-  transform-origin:left or right;
-  scale(0,1)
-
-  transform-origin:top or bottom;
-  scale(1,0)
-  */
-}
-.card_img::after {
-  position: absolute;
-  content: "";
+.botons{
+  background-color: rgb(5, 0, 109);
   width: 100%;
-  height: 100%;
-  background: RGBA(202, 207, 210, 0.39);
-  left: 0;
-  bottom: 0;
-  transform-origin: bottom;
-  transition: all 0.6s ease;
-}
-.card img {
-  position: relative;
-  border: none;
-  width: 330px;
-  transition: transform 0.5s;
-}
-.card::before {
-  position: absolute;
-  content: "";
-  width: 30%;
-  height: 20%;
-  opacity: 1;
-  transition: all 1s ease-out;
-  background: var(--color--gray-300);
-  top: 0;
-  right: 0;
-  border-radius: 0 0 0 8px;
-  clip-path: polygon(0 0, 40% 0, 100% 60%, 100% 100%);
-  z-index: 2;
-}
-.card::after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 10%;
-  opacity: 1;
-  transition: all 1s ease-out;
-  bottom: 0;
-  right: 0;
-  background: var(--color--gray-300);
-  clip-path: polygon(0 0, 20% 100%, 80% 100%, 100% 0, 100% 100%, 0 100%);
-}
-.card:hover {
-  box-shadow: -15px 15px 0px 0px rgba(0, 0, 0, 0.5), 0px 10px 15px -3px rgba(0, 0, 0, 0.5);
-  transform: translatey(-15px) translatex(15px);
-  transition: all 1s ease;
-}
-.card:hover::after, .card:hover::before {
-  background: var(--color--blue-500);
-  transition: all 1s ease-out;
-}
-.card:hover .card_title .title {
-  width: 60%;
-  color: white;
-  background: var(--color--blue-500);
-  clip-path: polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%, 5% 50%);
-  transition: all 0.7s ease;
-}
-.card:hover .card_img::after {
-  transform: scale(1, 0);
-}
-.card:hover img {
-  transform: scale(1.2);
+  height: 13%;
 }
 
-/*----------------------------*/
+.botons:hover{
+background-color:63FF4E;
+width:100%;
+height:15%;
+border-style:dashed;
 
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap");
-
-
-a {
-  color: gray;
-  text-decoration: none;
+}
+.ai{
+font-family: Orbitron;
+color:black;
+font-size:30px;
+text-decoration:none;
+font-weight: bold;
 }
 
-h1, h3, p {
-  font-family: "Josefin Sans", sans-serif;
+.ai:hover{
+  font-family:Orbitron;
+color:black;
+font-weight:bold;
+
+}
+
+@media(max-width:991px){
+ .general-container {
+ margin-top:-50px; 
+ }
 }
 
 
 
-:root {
-  --color--gray-300: #E0E0E0;
-  --color--pink-500: #cc0000;
-  --color--blue-800: #000033;
-}
 
-.card__father {
-  border-radius: 8px;
-  perspective: 1000px;
-  cursor: pointer;
-  
-}
 
-.card__father:hover .card {
-  box-shadow: -15px 15px 0px 0px rgba(0, 0, 0, 0.5), 0px 10px 15px -3px rgba(0, 0, 0, 0.5);
-  transform: translatey(-15px) translatex(15px);
-  transition: all 1s ease;
-}
-.card__father:hover .card_front_img {
-  border-radius: 8px 8px 0 0;
-}
-.card__father:hover .card_front_img img {
-  transform: scale(1.1);
-  transition: all 0.6s ease;
-}
-.card__father:hover .card_front_img::after {
-  transform: scale(1, 0);
-}
-.card__father:hover h1 {
-  clip-path: polygon(19% 0, 90% 0, 82% 100%, 10% 100%);
-  width: 100%;
-  color: white;
-  background: var(--color--pink-500);
-  transition: all 1s ease-out;
-}
-.card__father:hover .card::after, .card__father:hover .card::before {
-  background: var(--color--pink-500);
-  backface-visibility: hidden;
-  transition: all 1s ease-out;
-}
-.card__father:hover .rotate {
-  transition: all 1s ease;
-  transform: rotateY(-180deg);
-}
-.card__father:hover .rotate::after, .card__father:hover .rotate::before {
-  backface-visibility: hidden;
-}
 
-.rotate {
-  transition: all 1s ease;
-  transform: rotateY(-180deg);
-}
-.rotate::after, .rotate::before {
-  backface-visibility: hidden;
-}
 
-.card {
-   
-  position:relative;
-  width: 330px;
-  height: 550px;
-  border-radius: 8px;
-  background-color: white;
-  transform-style: preserve-3d;
-  transition: all 0.6s ease;
-  
-}
-.card__front, .card__back {
-  position: absolute;
-  border-radius: 8px;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-}
-.card_front_p {
-  margin-left: 1rem;
-}
-.card_front_title, .card_front_footer {
-  height: 2.5rem;
-  transform: translateZ(50px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.card_front_title h1, .card_front_footer h1 {
-  padding: 5px 0 5px 0;
-  background: var(--color--gray-300);
-  clip-path: polygon(19% 0, 90% 0, 82% 100%, 10% 100%);
-  transition: all 1s ease-out;
-}
-.card_front_title .title, .card_front_footer .title {
-  text-align: center;
-  width: 90%;
-}
-.card_front_title #footer, .card_front_footer #footer {
-  color: gray;
-  font-size: 0.9rem;
-}
-.card_front_title {
-  margin-top: 1rem;
-}
 
-.card::after, .card::before {
-  position: absolute;
-  content: "";
-  z-index: 2;
-  transition: all 1s ease-out;
-}
-.card::after {
-  width: 40%;
-  height: 25%;
-  top: 0;
-  left: 0;
-  background: var(--color--gray-300);
-  clip-path: polygon(25% 0, 85% 0, 30% 55%, 30% 40%, 70% 0, 50% 0, 0 50%, 0 25%);
-}
-.card::before {
-  width: 100%;
-  height: 40%;
-  background: var(--color--gray-300);
-  bottom: 0;
-  left: 0;
-  border-radius: 0 0 8px 8px;
-  clip-path: polygon(0 0, 10% 0, 0 20%, 0 30%, 15% 0, 20% 0, 0 40%, 0 100%, 100% 100%, 100% 80%, 90% 100%, 85% 100%, 95% 80%, 90% 80%, 80% 100%, 0 100%);
-}
 
-.social {
-  width: 40%;
-  list-style: none;
-  padding-left: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: 0 auto;
-}
-.social .icon {
-  color: gray;
-  font-size: 20px;
-  transition: all 0.6s ease;
-}
-.social .icon:hover {
-  color: var(--color--pink-500);
-  transform: translatey(-10px);
-  transition: all 0.6s ease;
-}
-.social::after, .social::before {
-  position: absolute;
-  content: "";
-  width: 10%;
-  height: 5px;
-  transition: all 0.8s ease;
-}
-.social::after {
-  clip-path: polygon(95% 0, 100% 50%, 95% 100%, 0 100%, 0 0);
-  left: 70%;
-}
-.social::before {
-  clip-path: polygon(5% 0, 100% 0, 100% 100%, 5% 100%, 0 50%);
-  right: 70%;
-}
-.social:hover::before, .social:hover::after {
-  width: 25%;
-  transition: all 0.8s ease;
-  background: var(--color--pink-500);
-}
 
-.card_front_img {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.6s ease;
-  border-radius: 8px 8px 0 0;
-}
-.card_front_img::after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: RGBA(202, 207, 210, 0.39);
-  left: 0;
-  bottom: 0;
-  transform-origin: bottom;
-  transition: all 0.6s ease;
-}
-.card_front_img img {
-  width: 330px;
-  transition: all 0.6s ease;
-}
 
-.card__back {
-  position: relative;
-  transform: rotateY(-180deg);
-  background: var(--color--blue-800);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.card__back .icon_back {
-  font-size: 2rem;
-  text-align: center;
-}
-.card__back .icon_back a {
-  color: var(--color--pink-500);
-}
-.card__back .author_back {
-  color: var(--color--gray-300);
-  font-size: 0.7rem;
-}
-.card__back .author_back span {
-  position: absolute;
-  transform: rotate(90deg);
-  top: 10%;
-  right: 0;
-}
-.card__back::after {
-  position: absolute;
-  content: "";
-  border: solid 2px white;
-  z-index: 3;
-}
-.card__back::after {
-  border-radius: 8px;
-  width: calc(330px - 18px);
-  height: calc(550px - 18px);
-  top: 7px;
-  left: 7px;
-}
+
+
+
+
+
+
+
 
 /* GALERIA DEVOCIONALES*/
 @import "https://fonts.googleapis.com/css?family=Open+Sans:800&display=swap";
